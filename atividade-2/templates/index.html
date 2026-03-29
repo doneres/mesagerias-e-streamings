@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expresso Logística</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .pedido {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+      }
+      .status-PENDENTE {
+        color: orange;
+        font-weight: bold;
+      }
+      .status-ENVIADO {
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Solicitar Entrega</h2>
+      <input type="text" id="cliente" placeholder="Nome do Cliente" />
+      <input type="text" id="destino" placeholder="Endereço de Destino" />
+      <button onclick="enviarPedido()">Despachar Pedido</button>
+
+      <h3>Pedidos Recentes</h3>
+      <div id="lista-pedidos"></div>
+    </div>
+
+    <script>
+      async function enviarPedido() {
+        const cliente = document.getElementById("cliente").value;
+        const destino = document.getElementById("destino").value;
+
+        await fetch("/api/pedidos", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cliente, destino }),
+        });
+
+        document.getElementById("cliente").value = "";
+        document.getElementById("destino").value = "";
+        carregarPedidos();
+      }
+
+      async function carregarPedidos() {
+        const response = await fetch("/api/pedidos");
+        const pedidos = await response.json();
+        const lista = document.getElementById("lista-pedidos");
+        lista.innerHTML = "";
+
+        pedidos.forEach((p) => {
+          lista.innerHTML += `
+                    <div class="pedido">
+                        <span>#${p.id} - ${p.cliente} (${p.destino})</span>
+                        <span class="status-${p.status}">${p.status}</span>
+                    </div>
+                `;
+        });
+      }
+
+      // Atualiza a lista a cada 2 segundos para ver a mudança assíncrona
+      setInterval(carregarPedidos, 2000);
+      carregarPedidos();
+    </script>
+  </body>
+</html>

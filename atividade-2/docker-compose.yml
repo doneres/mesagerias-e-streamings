@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  activemq:
+    image: rmohr/activemq:latest
+    ports:
+      - "8161:8161"   # Painel Administrativo Web
+      - "62200:61613" # Porta do protocolo STOMP (usado pelo Python)
+  
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: logistica
+    ports:
+      - "5432:5432"
