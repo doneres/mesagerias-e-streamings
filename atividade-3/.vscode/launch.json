@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-Ativdade3Application<ativdade-3>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "dev.doneres.ativdade_3.Ativdade3Application",
+      "projectName": "ativdade-3",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

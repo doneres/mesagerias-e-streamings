@@ -1,0 +1,10 @@
+services:
+  activemq:
+    image: rmohr/activemq:latest
+    container_name: broker-midia
+    ports:
+      - "62200:61616" # Porta de comunicação TCP (JMS)
+      - "8161:8161"   # Painel Web de Administração
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=admin

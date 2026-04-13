@@ -1,0 +1,7 @@
+br\edu\disciplina\consumer\AnalyticsConsumer.class
+br\edu\disciplina\consumer\ConsumerComDLQ.class
+br\edu\disciplina\model\EventoEncomenda.class
+br\edu\disciplina\consumer\RastreamentoConsumer.class
+br\edu\disciplina\App.class
+br\edu\disciplina\producer\EventoEncomendaProducer.class
+br\edu\disciplina\consumer\DLQMonitorConsumer.class

@@ -1,0 +1,7 @@
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\App.java
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\consumer\AnalyticsConsumer.java
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\consumer\ConsumerComDLQ.java
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\consumer\DLQMonitorConsumer.java
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\consumer\RastreamentoConsumer.java
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\model\EventoEncomenda.java
+D:\Projetos\A04_Kafka\kafka-atividade\src\main\java\br\edu\disciplina\producer\EventoEncomendaProducer.java
